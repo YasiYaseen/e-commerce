@@ -19,4 +19,8 @@ Route::get('product-list','productList')->name('product.list');
 Route::get('create-product', 'createProduct')->name('product.create');
 Route::post('save-product', 'save')->name('product.save');
 Route::get('delete-product/{id}','delete')->name('product.delete');
+Route::get('edit-product/{id}','editProduct')->name('product.edit');
+Route::post('update-product','saveEdit')->name('product.saveEdit');
+
+
 });

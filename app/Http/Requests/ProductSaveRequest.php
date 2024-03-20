@@ -23,9 +23,10 @@ class ProductSaveRequest extends FormRequest
     {
         return [
             'name'=>['required'],
-            'price'=>['required'],
+            'price'=>['required','numeric'],
             'category_id'=>['required'],
-            'status'=>['required']
+            'status'=>['required'],
+            'is_favourite'=>['nullable'],
         ];
     }
 }

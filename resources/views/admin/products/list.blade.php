@@ -42,6 +42,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">#</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Price</th>
                                         <th>Status</th>
@@ -52,10 +53,13 @@
                                     @foreach ($products as $product)
                                         <tr>
                                             <td>{{$loop->index+$products->firstItem()}}.</td>
+                                            <td><img src="@if($product->image)
+                                                {{asset('storage/images/'.$product->image)}}
+                                            @endif" alt="img" width="50" height="50"></td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
                                             <td>{{$product->status_text}}</td>
-                                            <td><a href="#" class="btn btn-info me-1"  >Edit</a>
+                                            <td><a href="{{route('admin.product.edit',encrypt($product->id))}}" class="btn btn-info me-1"  >Edit</a>
                                                 <a href="{{route('admin.product.delete',encrypt($product->id))}}" class="btn btn-danger ">Delete</a>
                                             </td>
                                         </tr>

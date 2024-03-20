@@ -16,5 +16,12 @@ class Product extends Model
             get: fn()=> $this->status==1?'Active':'inactive',
         );
     }
+    protected function IsFavourite():Attribute
+    {
+ return Attribute::make(
+    get: fn($value) => $value== 1?'on':'off',
+    set: fn($value) => $value== 'on'?1:0
+ );
+    }
     protected $appends=['status_text'];
 }

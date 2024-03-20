@@ -11,7 +11,12 @@ Route::get('login',[AdminController::class,'login'])->name('login');
 Route::post('do-login',[AdminController::class,'dologin'])->name('do.login');
 
 Route::get('dashboard',[DashBoardController::class,'dashboard'])->name('dashboard');
-Route::get('product-list',[ProductController::class,'productList'])->name('product.list');
 
 
 
+Route::controller(ProductController::class)->group(function(){
+Route::get('product-list','productList')->name('product.list');
+Route::get('create-product', 'createProduct')->name('product.create');
+Route::post('save-product', 'save')->name('product.save');
+Route::get('delete-product/{id}','delete')->name('product.delete');
+});

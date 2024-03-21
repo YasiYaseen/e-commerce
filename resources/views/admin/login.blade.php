@@ -27,7 +27,13 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                       <form action="{{route('admin.do.login')}}" method="POST">@csrf
+                       <form action="{{route('admin.do.login')}}" method="POST">
+                        @csrf
+                        @if (session('error'))
+                <div class="text-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <input type="text" id="form2Example1" class="form-control"  name="username"/>

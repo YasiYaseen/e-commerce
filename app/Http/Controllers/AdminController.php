@@ -17,11 +17,16 @@ class AdminController extends Controller
         if (auth('admin')->attempt($input)) {
             return redirect()->route('admin.dashboard');
         } else {
-            return redirect()->route('admin.do.login')->with('error','Login Failed');
+            return redirect()->route('admin.login')->with('error','Login Failed');
         }
 
 
         //end
+    }
+    public function logout()
+    {
+        auth('admin')->logout();
+        return view('admin.login');
     }
 
     /* class end */
